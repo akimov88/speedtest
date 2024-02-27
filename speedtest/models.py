@@ -1,6 +1,6 @@
 from django.db import models
 
-from speedtest.base.base_models import AbstractSpeedtestModel, AbstractNetworkTestModel
+from speedtest.base.base_models import AbstractNetworkTestModel, AbstractSpeedtestModel
 
 
 class Ping(AbstractNetworkTestModel):

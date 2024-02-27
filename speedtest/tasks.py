@@ -1,7 +1,12 @@
+import logging
+
 from celery import shared_task
+from django.utils import timezone
 
 from speedtest.models import Ping, Download, Upload, SpeedTest
 from speedtest.service import network_speedtest
+
+logger = logging.Logger('speedtest.tasks')
 
 
 @shared_task()
@@ -41,3 +46,6 @@ def network_speedtest_task():
             download=download,
             upload=upload
         )
+        logger.info(msg=f'{speedtest_result.get("timestamp")}: save_result')
+    else:
+        logger.error(msg=f'{timezone.now().isoformat()}: network_speedtest_task_error')
