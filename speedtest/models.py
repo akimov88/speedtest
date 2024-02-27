@@ -12,7 +12,7 @@ class AbstractNetworkTestModel(models.Model):
 
 
 class AbstractSpeedtestModel(models.Model):
-    imq = models.FloatField()
+    iqm = models.FloatField()
     bandwidth = models.BigIntegerField()
     bytes = models.BigIntegerField()
     elapsed = models.IntegerField()

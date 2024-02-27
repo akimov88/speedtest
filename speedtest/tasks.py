@@ -20,7 +20,7 @@ def network_speedtest_task():
             bandwidth=speedtest_result.get('download').get('bandwidth'),
             bytes=speedtest_result.get('download').get('bytes'),
             elapsed=speedtest_result.get('download').get('elapsed'),
-            imq=speedtest_result.get('download').get('latency').get('iqm'),
+            iqm=speedtest_result.get('download').get('latency').get('iqm'),
             low=speedtest_result.get('download').get('latency').get('low'),
             high=speedtest_result.get('download').get('latency').get('high'),
             jitter=speedtest_result.get('download').get('latency').get('jitter')
@@ -30,7 +30,7 @@ def network_speedtest_task():
             bandwidth=speedtest_result.get('upload').get('bandwidth'),
             bytes=speedtest_result.get('upload').get('bytes'),
             elapsed=speedtest_result.get('upload').get('elapsed'),
-            imq=speedtest_result.get('upload').get('latency').get('iqm'),
+            iqm=speedtest_result.get('upload').get('latency').get('iqm'),
             low=speedtest_result.get('upload').get('latency').get('low'),
             high=speedtest_result.get('upload').get('latency').get('high'),
             jitter=speedtest_result.get('upload').get('latency').get('jitter')

@@ -11,11 +11,11 @@ class PingAdmin(admin.ModelAdmin):
 
 @admin.register(Download)
 class DownloadAdmin(admin.ModelAdmin):
-    list_display = ('timestamp', 'bandwidth', 'bytes', 'elapsed', 'imq', 'low', 'high', 'jitter')
+    list_display = ('timestamp', 'bandwidth', 'bytes', 'elapsed', 'iqm', 'low', 'high', 'jitter')
     list_filter = ('timestamp',)
 
 
 @admin.register(Upload)
 class UploadAdmin(admin.ModelAdmin):
-    list_display = ('timestamp', 'bandwidth', 'bytes', 'elapsed', 'imq', 'low', 'high', 'jitter')
+    list_display = ('timestamp', 'bandwidth', 'bytes', 'elapsed', 'iqm', 'low', 'high', 'jitter')
     list_filter = ('timestamp',)
