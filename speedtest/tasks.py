@@ -4,7 +4,7 @@ from speedtest.models import Ping, Download, Upload
 from speedtest.service import network_speedtest
 
 
-@shared_task(bind=True)
+@shared_task()
 def network_speedtest_task():
     speedtest_result = network_speedtest()
     if speedtest_result:

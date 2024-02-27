@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class AbstractNetworkSpeedtestModel(models.Model):
+class AbstractNetworkTestModel(models.Model):
     timestamp = models.DateTimeField()
     jitter = models.FloatField()
     low = models.FloatField()
@@ -11,19 +11,23 @@ class AbstractNetworkSpeedtestModel(models.Model):
         abstract = True
 
 
-class Ping(AbstractNetworkSpeedtestModel):
+class AbstractSpeedtestModel(models.Model):
+    imq = models.FloatField()
+    bandwidth = models.BigIntegerField()
+    bytes = models.BigIntegerField()
+    elapsed = models.IntegerField()
+
+    class Meta:
+        abstract = True
+
+
+class Ping(AbstractNetworkTestModel):
     latency = models.FloatField()
 
 
-class Download(AbstractNetworkSpeedtestModel):
-    imq = models.FloatField()
-    bandwidth = models.BigIntegerField()
-    bytes = models.BigIntegerField()
-    elapses = models.IntegerField()
+class Download(AbstractNetworkTestModel, AbstractSpeedtestModel):
+    pass
 
 
-class Upload(AbstractNetworkSpeedtestModel):
-    imq = models.FloatField()
-    bandwidth = models.BigIntegerField()
-    bytes = models.BigIntegerField()
-    elapses = models.IntegerField()
+class Upload(AbstractNetworkTestModel, AbstractSpeedtestModel):
+    pass
