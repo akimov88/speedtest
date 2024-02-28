@@ -22,7 +22,7 @@ class SpeedTestResultView(TemplateView):
         download_figure.add_trace(
             go.Scatter(
                 x=[result.timestamp for result in qs],
-                y=[result.download_bytes / 1024 / 1024 / (result.download_elapsed / 1000) * 8 for result in qs],
+                y=[result.download_speed for result in qs],
             )
         )
         download_figure.update_layout(
@@ -33,7 +33,7 @@ class SpeedTestResultView(TemplateView):
         upload_figure.add_trace(
             go.Scatter(
                 x=[result.timestamp for result in qs],
-                y=[result.upload_bytes / 1024 / 1024 / (result.upload_elapsed / 1000) * 8 for result in qs]
+                y=[result.upload_speed for result in qs]
             )
         )
         upload_figure.update_layout(
@@ -42,4 +42,4 @@ class SpeedTestResultView(TemplateView):
             yaxis_title='mb/s',
         )
         context['download'], context['upload'] = download_figure.to_html(), upload_figure.to_html()
-        return render(request, context=context, template_name='speedtest_result.html')
+        return render(request, context=context, template_name='result.html')
