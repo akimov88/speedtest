@@ -1,27 +1,21 @@
 from django.contrib import admin
 
-from speedtest.models import Ping, Download, Upload, SpeedTest
+from speedtest.models import Result
 
 
-@admin.register(Ping)
-class PingAdmin(admin.ModelAdmin):
-    list_display = ('timestamp', 'jitter', 'low', 'high', 'latency')
-    list_filter = ('timestamp',)
-
-
-@admin.register(Download)
-class DownloadAdmin(admin.ModelAdmin):
-    list_display = ('timestamp', 'bandwidth', 'bytes', 'elapsed', 'iqm', 'low', 'high', 'jitter')
-    list_filter = ('timestamp',)
-
-
-@admin.register(Upload)
-class UploadAdmin(admin.ModelAdmin):
-    list_display = ('timestamp', 'bandwidth', 'bytes', 'elapsed', 'iqm', 'low', 'high', 'jitter')
-    list_filter = ('timestamp',)
-
-
-@admin.register(SpeedTest)
+@admin.register(Result)
 class SpeedTestAdmin(admin.ModelAdmin):
-    list_display = ('timestamp', 'ping', 'download', 'upload')
+    list_display = (
+        'timestamp',
+        'download_bandwidth',
+        'download_bytes',
+        'download_elapsed',
+        'upload_bandwidth',
+        'upload_bytes',
+        'upload_elapsed',
+        'ping_jitter',
+        'ping_latency',
+        'ping_high',
+        'ping_low',
+    )
     list_filter = ('timestamp',)
