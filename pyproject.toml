@@ -15,6 +15,7 @@ djangorestframework = "^3.14"
 ruff = "^0.2.2"
 django-redis = "^5.4.0"
 plotly = "^5.19.0"
+pandas = "^2.2.1"
 
 
 [build-system]
