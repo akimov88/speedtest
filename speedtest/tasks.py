@@ -3,7 +3,7 @@ import logging
 from celery import shared_task
 
 from speedtest.models import Result
-from speedtest.service import network_speedtest
+from speedtest.services.speedtest_methods import network_speedtest
 
 logger = logging.Logger('speedtest.tasks')
 
