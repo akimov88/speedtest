@@ -13,7 +13,7 @@ def network_speedtest() -> dict:
         result = p.stdout
         return json.loads(result)
     except Exception as error:
-        logger.error(msg=f'{error}')
+        logger.error(msg=f'network_speedtest_error: {error}')
 
 
 def network_speedtest_detail() -> list:
@@ -23,4 +23,4 @@ def network_speedtest_detail() -> list:
         result = p.stdout.decode('utf-8').split('\r\n')
         return result
     except Exception as error:
-        logger.error(msg=f'{error}')
+        logger.error(msg=f'network_speedtest_detail_error: {error}')
